@@ -1,18 +1,21 @@
-# EvoSim
+# 🌱 EvoSim – Ecosystem Simulation in C++
 
-**EvoSim** is a simple C++ ecosystem simulation.  
-It models a `World` with entities that can **grow, reproduce, and die**. Current entities include:
+Welcome to **EvoSim**, a tiny but lively C++ ecosystem simulator!  
+Watch your world grow and evolve as **Plants** and **Herbivores** live, reproduce, and interact. 🌿🦌
 
-- `Plant` — grows energy and reproduces.
-- `Herbivore` — consumes energy (simulated), reproduces, and dies if energy runs out.
+---
 
-The simulation demonstrates:
+## 🎯 What It Does
 
-- Polymorphism using a base `Entity` class.
-- Safe memory management using `std::unique_ptr`.
-- Emergent behavior: population growth and interactions.
+- `Plant` 🌱: grows energy each tick, reproduces when strong enough.  
+- `Herbivore` 🦌: consumes energy (simulated eating), reproduces, and dies if it runs out.  
+- `World` 🌍: the master controller — updates entities, adds new ones, and removes the dead safely.  
 
-## How to Build
+**Polymorphism** + **smart pointers** = a safe, extensible ecosystem!
+
+---
+
+## ⚡ How to Build
 
 ```bash
 rm -f evosim
@@ -22,4 +25,3 @@ g++ src/main.cpp \
     src/entities/Plant.cpp \
     src/entities/Herbivore.cpp \
     -Iinclude -o evosim && ./evosim
-
