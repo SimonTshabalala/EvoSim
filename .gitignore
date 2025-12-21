@@ -1,20 +1,15 @@
-# Build output
-build/
-*.o
-*.out
-*.exe
+# Compiled binaries
 evosim
+tests/test
 
-# CMake (later)
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
+# Object files
+*.o
+*.obj
 
-# Editor junk
+# Backup files
+*~
+*.swp
+
+# IDE settings
 .vscode/
 .idea/
-
-# OS junk
-.DS_Store
-Thumbs.db
