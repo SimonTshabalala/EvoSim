@@ -11,22 +11,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Install g++
-      run: sudo apt-get update && sudo apt-get install -y g++
+      # Step 2: Install g++
+      - name: Install g++
+        run: sudo apt-get update && sudo apt-get install -y g++
 
-    - name: Compile unit tests
-      run: |
-        g++ tests/test_entities.cpp \
-            src/world/World.cpp \
-            src/entities/Entity.cpp \
-            src/entities/Plant.cpp \
-            src/entities/Herbivore.cpp \
-            src/entities/Carnivore.cpp \
-            src/entities/Omnivore.cpp \
-            -Iinclude -o tests/test_entities
+      # Step 3: Compile unit tests
+      - name: Compile unit tests
+        run: |
+          g++ -std=c++17 -Wall -Wextra -pedantic \
+              tests/test_entities.cpp \
+              src/world/World.cpp \
+              src/entities/Plant.cpp \
+              src/entities/Herbivore.cpp \
+              src/entities/Carnivore.cpp \
+              src/entities/Omnivore.cpp \
+              -Iinclude -o tests/test_entities
 
-    - name: Run unit tests
-      run: ./tests/test_entities
+      # Step 4: Run unit tests
+      - name: Run unit tests
+        run: ./tests/test_entities
+
+      # Step 5: Compile main simulation
+      - name: Compile main simulation
+        run: |
+          g++ -std=c++17 -Wall -Wextra -pedantic \
+              src/main.cpp \
+              src/world/World.cpp \
+              src/entities/Plant.cpp \
+              src/entities/Herbivore.cpp \
+              src/entities/Carnivore.cpp \
+              src/entities/Omnivore.cpp \
+              -Iinclude -o evosim
+
+      # Step 6: Run main simulation
+      - name: Run main simulation
+        run: ./evosim

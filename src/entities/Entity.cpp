@@ -1,2 +1,2 @@
 #include "Entity.h"
-// No implementation needed yet
+// Intentionally empty

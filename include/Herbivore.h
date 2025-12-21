@@ -3,6 +3,8 @@
 
 #include "Entity.h"
 
+class World;
+
 class Herbivore : public Entity {
 public:
     explicit Herbivore(double initialEnergy);
