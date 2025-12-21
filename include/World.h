@@ -3,17 +3,20 @@
 
 #include <vector>
 #include <memory>
+#include <cstddef>
 
 class Entity;
 
 class World {
 public:
     World();
-    ~World();  // <-- THIS LINE FIXES THE ERROR
+    ~World();
 
     void addEntity(std::unique_ptr<Entity> entity);
     void update();
+
     unsigned long long getTick() const;
+    std::size_t population() const;
 
 private:
     unsigned long long tick;

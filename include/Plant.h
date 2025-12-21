@@ -5,7 +5,7 @@
 
 class Plant : public Entity {
 public:
-    Plant(double initialEnergy);
+    explicit Plant(double initialEnergy);
 
     void update(World& world) override;
     bool isAlive() const override;
