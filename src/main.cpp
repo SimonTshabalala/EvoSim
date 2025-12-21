@@ -8,7 +8,8 @@
 #include "Omnivore.h"
 
 int main() {
-    World world;
+    // Save stats to CSV
+    World world("simulation_stats.csv");
 
     // Add entities
     world.addEntity(std::make_unique<Plant>(1.0));
@@ -36,5 +37,6 @@ int main() {
                   << "\n";
     }
 
+    std::cout << "\nSimulation stats saved to simulation_stats.csv\n";
     return 0;
 }
