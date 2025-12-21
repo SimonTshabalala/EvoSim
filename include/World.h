@@ -12,6 +12,7 @@ public:
     World();
     ~World();
 
+    // Adds an entity to the world (queued if during update)
     void addEntity(std::unique_ptr<Entity> entity);
     void update();
 
@@ -21,6 +22,9 @@ public:
 private:
     unsigned long long tick;
     std::vector<std::unique_ptr<Entity>> entities;
+
+    // Temporary storage for new entities added during update
+    std::vector<std::unique_ptr<Entity>> newEntities;
 };
 
 #endif
